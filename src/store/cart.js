@@ -84,8 +84,12 @@ export const removeProduct = productId => {
 
 const updateCartProperty = (state, id, property, value) => {
   const newState = [...state];
-  newState[id][property] = value;
-  return newState;
+  for (let i = 0; i < newState.length; i++) {
+    if (newState[i].id === id) {
+      newState[i][property] = value;
+      return newState;
+    }
+  }
 };
 
 export default function(state = initialState, action) {

@@ -14,11 +14,6 @@ class Product extends Component {
     };
   }
 
-  componentDidUpdate(nextProps) {
-    console.log(this.props);
-    console.log(nextProps);
-  }
-
   handleEdit = () => {
     const { openEdit } = this.state;
     this.setState({ openEdit: !openEdit });
@@ -50,7 +45,7 @@ class Product extends Component {
     this.setState({
       size: event.target.value
     });
-
+    console.log(product.id);
     updateSize(product.id, event.target.value);
   };
 
@@ -61,15 +56,14 @@ class Product extends Component {
   };
 
   render() {
-    const { product, cart, removeItem } = this.props;
+    const { product, cart } = this.props;
     const { openEdit } = this.state;
-
     return (
       <div>
         <h1>{product.name}</h1>
         <img src={product.image} alt={product.name} />
         <select
-          value={cart[product.id].selectedColor}
+          value={product.selectedColor}
           onChange={this.handleSelectedColor}
         >
           {product.colors.map((color, i) => {
@@ -81,10 +75,7 @@ class Product extends Component {
           })}
         </select>
 
-        <select
-          value={cart[product.id].selectedSize}
-          onChange={this.handleSelectedSize}
-        >
+        <select value={product.selectedSize} onChange={this.handleSelectedSize}>
           {product.sizes.map((size, i) => {
             return (
               <option key={i} value={size}>
@@ -100,7 +91,7 @@ class Product extends Component {
         <input
           type="number"
           name="quantity"
-          value={cart[product.id].quantity}
+          value={product.quantity}
           min="1"
           step="1"
           onChange={this.handleQuantity}
@@ -114,7 +105,7 @@ class Product extends Component {
             closeEdit={this.handleEdit}
             product={product}
             cart={cart}
-            quantity={cart[product.id].quantity}
+            quantity={product.quantity}
             handleQuantity={this.handleQuantity}
             handleSelectedColor={this.handleSelectedColor}
             handleSelectedSize={this.handleSelectedSize}

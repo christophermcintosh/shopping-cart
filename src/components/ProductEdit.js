@@ -24,10 +24,7 @@ class ProductEdit extends Component {
 
         <label>
           Color:
-          <select
-            value={cart[product.id].selectedColor}
-            onChange={handleSelectedColor}
-          >
+          <select value={product.selectedColor} onChange={handleSelectedColor}>
             {product.colors.map((color, i) => {
               return (
                 <option key={i} value={color}>
@@ -39,10 +36,7 @@ class ProductEdit extends Component {
         </label>
         <label>
           Color:
-          <select
-            value={cart[product.id].selectedSize}
-            onChange={handleSelectedSize}
-          >
+          <select value={product.selectedSize} onChange={handleSelectedSize}>
             {product.sizes.map((size, i) => {
               return (
                 <option key={i} value={size}>
