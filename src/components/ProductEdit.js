@@ -6,18 +6,15 @@ class ProductEdit extends Component {
     super();
   }
 
-  handleSubmitEdit = () => {
-    const { handleClick } = this.props;
-    handleClick();
-  };
-
   render() {
     const {
       product,
       cart,
       quantity,
       handleQuantity,
-      handleSelectedColor
+      handleSelectedColor,
+      handleClick,
+      handleSelectedSize
     } = this.props;
 
     return (
@@ -40,6 +37,21 @@ class ProductEdit extends Component {
             })}
           </select>
         </label>
+        <label>
+          Color:
+          <select
+            value={cart[product.id].selectedSize}
+            onChange={handleSelectedSize}
+          >
+            {product.sizes.map((size, i) => {
+              return (
+                <option key={i} value={size}>
+                  {size}
+                </option>
+              );
+            })}
+          </select>
+        </label>
         <p>{product.price}</p>
         <input
           type="number"
@@ -49,7 +61,7 @@ class ProductEdit extends Component {
           step="1"
           onChange={handleQuantity}
         />
-        <Button handleClick={this.handleSubmitEdit} text="Save" />
+        <Button handleClick={handleClick} text="Submit Edit" />
       </div>
     );
   }

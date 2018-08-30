@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProductEditWindow from './ProductEditWindow';
 import Button from './Button';
+import { fetchCart } from '../store';
 
 class Product extends Component {
   constructor() {
@@ -8,12 +9,14 @@ class Product extends Component {
     this.state = {
       openEdit: false,
       quantity: null,
-      color: null
+      color: null,
+      size: null
     };
   }
 
-  componentDidMount() {
-    const { product } = this.props;
+  componentDidUpdate(nextProps) {
+    console.log(this.props);
+    console.log(nextProps);
   }
 
   handleEdit = () => {
@@ -41,8 +44,24 @@ class Product extends Component {
     updateColor(product.id, event.target.value);
   };
 
+  handleSelectedSize = event => {
+    const { product, updateSize } = this.props;
+
+    this.setState({
+      size: event.target.value
+    });
+
+    updateSize(product.id, event.target.value);
+  };
+
+  handleDelete = () => {
+    const { product, removeItem, getUpdatedCart } = this.props;
+    removeItem(product.id);
+    getUpdatedCart();
+  };
+
   render() {
-    const { product, cart } = this.props;
+    const { product, cart, removeItem } = this.props;
     const { openEdit } = this.state;
 
     return (
@@ -61,6 +80,20 @@ class Product extends Component {
             );
           })}
         </select>
+
+        <select
+          value={cart[product.id].selectedSize}
+          onChange={this.handleSelectedSize}
+        >
+          {product.sizes.map((size, i) => {
+            return (
+              <option key={i} value={size}>
+                {size}
+              </option>
+            );
+          })}
+        </select>
+
         <p>{product.price}</p>
 
         <label htmlFor="quantity">Quantity:</label>
@@ -74,6 +107,7 @@ class Product extends Component {
         />
 
         <Button handleClick={this.handleEdit} text="Edit" />
+        <Button handleClick={this.handleDelete} text="Delete" />
 
         {openEdit ? (
           <ProductEditWindow
@@ -83,6 +117,7 @@ class Product extends Component {
             quantity={cart[product.id].quantity}
             handleQuantity={this.handleQuantity}
             handleSelectedColor={this.handleSelectedColor}
+            handleSelectedSize={this.handleSelectedSize}
           />
         ) : null}
       </div>

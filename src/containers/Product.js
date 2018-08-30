@@ -4,7 +4,10 @@ import {
   fetchProducts,
   fetchCart,
   updateQuantity,
-  updateColor
+  updateColor,
+  updateSize,
+  removeItem,
+  getUpdatedCart
 } from '../store';
 import ProductList from '../components/ProductList';
 
@@ -14,8 +17,22 @@ class Product extends Component {
     this.props.fetchCart();
   }
 
+  componentDidUpdate(nextProps) {
+    console.log(this.props);
+    console.log(nextProps);
+  }
+
   render() {
-    const { products, cart, updateQuantity, updateColor } = this.props;
+    const {
+      products,
+      cart,
+      updateQuantity,
+      updateColor,
+      updateSize,
+      removeItem,
+      fetchCart,
+      getUpdatedCart
+    } = this.props;
 
     return (
       <ProductList
@@ -23,6 +40,9 @@ class Product extends Component {
         cart={cart}
         updateQuantity={updateQuantity}
         updateColor={updateColor}
+        updateSize={updateSize}
+        removeItem={removeItem}
+        getUpdatedCart={getUpdatedCart}
       />
     );
   }
@@ -37,11 +57,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchProducts: () => dispatch(fetchProducts()),
+  fetchCart: cart => dispatch(fetchCart(cart)),
+  getUpdatedCart: () => dispatch(getUpdatedCart()),
   updateQuantity: (productId, quantity) =>
     dispatch(updateQuantity(productId, quantity)),
   updateColor: (productId, selectedColor) =>
     dispatch(updateColor(productId, selectedColor)),
-  fetchCart: () => dispatch(fetchCart())
+  updateSize: (productId, selectedSize) =>
+    dispatch(updateSize(productId, selectedSize)),
+  removeItem: productId => dispatch(removeItem(productId))
 });
 
 export default connect(

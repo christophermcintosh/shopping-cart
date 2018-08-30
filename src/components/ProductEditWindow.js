@@ -10,19 +10,21 @@ class ProductEditWindow extends Component {
       cart,
       quantity,
       handleQuantity,
-      handleSelectedColor
+      handleSelectedColor,
+      handleSelectedSize
     } = this.props;
 
     return (
       <div className="lightbox">
         <div className="product-edit-expand-container">
-          <Button handleClick={closeEdit} text="X" />
+          {/* <Button handleClick={closeEdit} text="X" /> */}
           <ProductEdit
             product={product}
             cart={cart}
             quantity={quantity}
             handleQuantity={handleQuantity}
             handleSelectedColor={handleSelectedColor}
+            handleSelectedSize={handleSelectedSize}
             handleClick={closeEdit}
           />
         </div>
