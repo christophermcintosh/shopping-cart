@@ -3,6 +3,7 @@
     "id": 0,
     "name": "Button Down Shirt",
     "colors": ["red", "black", "white"],
+    "selectedColor": "red",
     "price": "20.00",
     "image": "../img/button-down-shirt.png",
     "quantity": 1
@@ -11,6 +12,7 @@
     "id": 1,
     "name": "Polo Shirt",
     "colors": ["red", "black", "white"],
+    "selectedColor": "white",
     "price": "15.00",
     "image": "../img/polo-shirt.png",
     "quantity": 1
@@ -19,6 +21,7 @@
     "id": 2,
     "name": "T-Shirt",
     "colors": ["red", "black", "white"],
+    "selectedColor": "red",
     "price": "10.00",
     "image": "../img/t-shirt.png",
     "quantity": 1
@@ -27,6 +30,7 @@
     "id": 3,
     "name": "Tank Top",
     "colors": ["red", "black", "white"],
+    "selectedColor": "white",
     "price": "5.00",
     "image": "../img/tank-top.png",
     "quantity": 1

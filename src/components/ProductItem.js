@@ -7,8 +7,13 @@ class Product extends Component {
     super();
     this.state = {
       openEdit: false,
-      quantity: 1
+      quantity: null,
+      color: null
     };
+  }
+
+  componentDidMount() {
+    const { product } = this.props;
   }
 
   handleEdit = () => {
@@ -26,6 +31,16 @@ class Product extends Component {
     updateQuantity(product.id, event.target.value);
   };
 
+  handleSelectedColor = event => {
+    const { product, updateColor } = this.props;
+
+    this.setState({
+      color: event.target.value
+    });
+
+    updateColor(product.id, event.target.value);
+  };
+
   render() {
     const { product, cart } = this.props;
     const { openEdit } = this.state;
@@ -34,11 +49,18 @@ class Product extends Component {
       <div>
         <h1>{product.name}</h1>
         <img src={product.image} alt={product.name} />
-        <ul>
+        <select
+          value={cart[product.id].selectedColor}
+          onChange={this.handleSelectedColor}
+        >
           {product.colors.map((color, i) => {
-            return <li key={i}>{color}</li>;
+            return (
+              <option key={i} value={color}>
+                {color}
+              </option>
+            );
           })}
-        </ul>
+        </select>
         <p>{product.price}</p>
 
         <label htmlFor="quantity">Quantity:</label>
@@ -57,8 +79,10 @@ class Product extends Component {
           <ProductEditWindow
             closeEdit={this.handleEdit}
             product={product}
+            cart={cart}
             quantity={cart[product.id].quantity}
             handleQuantity={this.handleQuantity}
+            handleSelectedColor={this.handleSelectedColor}
           />
         ) : null}
       </div>

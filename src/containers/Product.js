@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts, fetchCart, updateQuantity } from '../store';
+import {
+  fetchProducts,
+  fetchCart,
+  updateQuantity,
+  updateColor
+} from '../store';
 import ProductList from '../components/ProductList';
 
 class Product extends Component {
@@ -10,13 +15,14 @@ class Product extends Component {
   }
 
   render() {
-    const { products, cart, updateQuantity } = this.props;
+    const { products, cart, updateQuantity, updateColor } = this.props;
 
     return (
       <ProductList
         products={products}
         cart={cart}
         updateQuantity={updateQuantity}
+        updateColor={updateColor}
       />
     );
   }
@@ -33,6 +39,8 @@ const mapDispatchToProps = dispatch => ({
   fetchProducts: () => dispatch(fetchProducts()),
   updateQuantity: (productId, quantity) =>
     dispatch(updateQuantity(productId, quantity)),
+  updateColor: (productId, selectedColor) =>
+    dispatch(updateColor(productId, selectedColor)),
   fetchCart: () => dispatch(fetchCart())
 });
 

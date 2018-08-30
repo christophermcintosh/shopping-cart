@@ -7,9 +7,10 @@ class ProductEditWindow extends Component {
     const {
       closeEdit,
       product,
+      cart,
       quantity,
       handleQuantity,
-      updateQuantity
+      handleSelectedColor
     } = this.props;
 
     return (
@@ -18,8 +19,11 @@ class ProductEditWindow extends Component {
           <Button handleClick={closeEdit} text="X" />
           <ProductEdit
             product={product}
+            cart={cart}
             quantity={quantity}
             handleQuantity={handleQuantity}
+            handleSelectedColor={handleSelectedColor}
+            handleClick={closeEdit}
           />
         </div>
       </div>
