@@ -9,41 +9,50 @@ import {
   removeItem,
   getUpdatedCart
 } from '../store';
-import ProductList from '../components/ProductList';
+import ProductItem from '../components/ProductItem';
 
 class Product extends Component {
+  constructor() {
+    super();
+    this.state = {
+      cart: []
+    };
+  }
+
   componentDidMount() {
     this.props.fetchProducts();
     this.props.fetchCart();
   }
 
   componentDidUpdate(nextProps) {
-    console.log(this.props);
-    console.log(nextProps);
+    if (this.props.cart !== nextProps.cart) {
+      this.setState({
+        cart: this.props.cart
+      });
+    }
   }
 
   render() {
-    const {
-      products,
-      cart,
-      updateQuantity,
-      updateColor,
-      updateSize,
-      removeItem,
-      fetchCart,
-      getUpdatedCart
-    } = this.props;
+    const { cart } = this.state;
 
     return (
-      <ProductList
-        products={products}
-        cart={cart}
-        updateQuantity={updateQuantity}
-        updateColor={updateColor}
-        updateSize={updateSize}
-        removeItem={removeItem}
-        getUpdatedCart={getUpdatedCart}
-      />
+      <div>
+        <h1>Products</h1>
+        {cart.map(product => {
+          return (
+            <ProductItem
+              key={product.id}
+              product={product}
+              cart={cart}
+              updateQuantity={this.props.updateQuantity}
+              updateColor={this.props.updateColor}
+              updateSize={this.props.updateSize}
+              removeItem={this.props.removeItem}
+              getUpdatedCart={this.props.getUpdatedCart}
+            />
+          );
+        })}
+      </div>
     );
   }
 }
@@ -51,7 +60,7 @@ class Product extends Component {
 const mapStateToProps = state => {
   return {
     products: state.products.products,
-    cart: state.products.products
+    cart: state.cart
   };
 };
 
