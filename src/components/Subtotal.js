@@ -1,14 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Subtotal extends Component {
-  render() {
-    const { subtotal } = this.props;
-    return (
-      <div>
-        <h1>${Number(subtotal).toFixed(2)}</h1>
+const Subtotal = ({ subtotal }) => {
+  return (
+    <div className="row subtotal">
+      <div className="col-6 subtotal-contact pt-2">
+        <p>Need help or have any questions?</p>
+        <p className="font-weight-bold">Contact:</p>
+        <p>
+          <a href="https://christophermcintosh.github.io/portfolio/">
+            Christopher McIntosh
+          </a>
+        </p>
+        <p>chrismac92@gmail.com</p>
       </div>
-    );
-  }
-}
+      <div className="col-4">
+        <p>Subtotal:</p>
+      </div>
+      <div className="col-2">
+        <p className="font-weight-bold">${Number(subtotal).toFixed(2)}</p>
+      </div>
+    </div>
+  );
+};
 
 export default Subtotal;

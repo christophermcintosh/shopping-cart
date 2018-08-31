@@ -2,12 +2,44 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: #4d4d4d;
+  font-size: 1.1rem;
 }
 
-img {
-  max-width: 250px;
+button {
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  cursor: auto;
 }
 
+/* Cart */
+.row-header {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  padding: 10px;
+  box-shadow: 0 4px 10px -6px #333;
+  font-weight: bold;
+}
+
+/* Product */
+.product-desc {
+  display: flex;
+}
+
+.product-desc p {
+  margin-bottom: 0;
+}
+
+.product-desc img {
+  width: 200px;
+  max-height: 250px;
+}
+
+.product-btn {
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* Product Lightbox */
 .lightbox {
   position: fixed;
   display: flex;
@@ -25,7 +57,65 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 90%;
+  width: 80vw;
+  height: 80vh;
   margin: 0 auto;
+  padding: 3rem 1rem;
   background-color: #fefefe;
+}
+
+.product-lightbox {
+  display: flex;
+}
+
+.product-lightbox-desc {
+  padding: 1rem;
+  width: 50%;
+}
+
+.product-lightbox img {
+  max-width: 100%;
+  max-height: 700px;
+}
+
+.product-lightbox p {
+  font-size: 1.5rem;
+}
+
+.product-lightbox button {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  margin: 30px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.product-lightbox button:hover {
+  background-color: #008cbd;
+  color: white;
+}
+
+.product-lightbox input {
+  width: 40px;
+  text-align: center;
+}
+
+/* Subtotal */
+.subtotal p {
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.subtotal-contact p {
+  font-size: 0.9rem;
+  padding: 0;
+  margin: 0;
 }

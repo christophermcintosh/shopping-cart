@@ -1,64 +1,71 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from './Button';
+import SelectBox from './SelectBox';
 
-class ProductEdit extends Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    const {
-      product,
-      cart,
-      quantity,
-      handleQuantity,
-      handleSelectedColor,
-      handleClick,
-      handleSelectedSize
-    } = this.props;
-
-    return (
-      <div>
-        <h1>{product.name}</h1>
-        <img src={product.image} alt={product.name} />
-
-        <label>
-          Color:
-          <select value={product.selectedColor} onChange={handleSelectedColor}>
-            {product.colors.map((color, i) => {
-              return (
-                <option key={i} value={color}>
-                  {color}
-                </option>
-              );
-            })}
-          </select>
-        </label>
-        <label>
-          Color:
-          <select value={product.selectedSize} onChange={handleSelectedSize}>
-            {product.sizes.map((size, i) => {
-              return (
-                <option key={i} value={size}>
-                  {size}
-                </option>
-              );
-            })}
-          </select>
-        </label>
-        <p>{product.price}</p>
-        <input
-          type="number"
-          name="quantity"
-          value={quantity}
-          min="1"
-          step="1"
-          onChange={handleQuantity}
-        />
+const ProductEdit = ({
+  product,
+  quantity,
+  handleSelectedColor,
+  handleSelectedSize,
+  handleQuantity,
+  handleClick
+}) => {
+  return (
+    <div className="product-lightbox">
+      <div className="product-lightbox-desc text-center py-5">
+        <hr />
+        <p className="text-uppercase font-weight-bold">{product.name}</p>
+        <p className="text-uppercase font-weight-bold">
+          #MS13KT
+          {product.id}
+        </p>
+        <p>
+          Price:{' '}
+          <span className="text-uppercase font-weight-bold">
+            ${product.price}
+          </span>
+        </p>
+        <hr />
+        <div>
+          <SelectBox
+            value={product.selectedColor}
+            handleChange={handleSelectedColor}
+            arr={product.colors}
+            property="selectedColor"
+            label="Color: "
+          />
+        </div>
+        <div>
+          <SelectBox
+            value={product.selectedSize}
+            handleChange={handleSelectedSize}
+            arr={product.sizes}
+            property="selectedSize"
+            label="Size: "
+          />
+        </div>
+        <div>
+          <label>
+            Quantity:{' '}
+            <input
+              type="number"
+              name="quantity"
+              value={product.quantity}
+              min="1"
+              step="1"
+              onChange={handleQuantity}
+            />
+          </label>
+        </div>
+        <hr />
         <Button handleClick={handleClick} text="Submit Edit" />
+        <hr />
       </div>
-    );
-  }
-}
+      <div>
+        <img src={product.image} alt={product.name} />
+      </div>
+    </div>
+  );
+};
 
 export default ProductEdit;
