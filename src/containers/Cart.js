@@ -36,7 +36,7 @@ class Cart extends Component {
     return (
       <div>
         <div className="row row-header">
-          <div className="col-8">{cart.length} ITEMS</div>
+          <div className="col-8">{cart.length} ITEM(S)</div>
           <div className="col-1">SIZE</div>
           <div className="col-2">QTY</div>
           <div className="col-1">PRICE</div>

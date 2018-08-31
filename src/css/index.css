@@ -53,10 +53,6 @@ button {
 }
 
 .product-edit-expand-container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   width: 80vw;
   height: 80vh;
   margin: 0 auto;

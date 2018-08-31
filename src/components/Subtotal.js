@@ -7,7 +7,11 @@ const Subtotal = ({ subtotal }) => {
         <p>Need help or have any questions?</p>
         <p className="font-weight-bold">Contact:</p>
         <p>
-          <a href="https://christophermcintosh.github.io/portfolio/">
+          <a
+            href="https://christophermcintosh.github.io/portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Christopher McIntosh
           </a>
         </p>

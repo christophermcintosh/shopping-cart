@@ -4,7 +4,6 @@ import SelectBox from './SelectBox';
 
 const ProductEdit = ({
   product,
-  quantity,
   handleSelectedColor,
   handleSelectedSize,
   handleQuantity,
