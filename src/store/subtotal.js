@@ -1,5 +1,3 @@
-import products from '../api/products';
-
 const GET_TOTAL = 'GET_TOTAL';
 
 const initialState = {

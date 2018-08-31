@@ -56,9 +56,9 @@ export const removeItem = productId => {
   };
 };
 
-export const fetchCart = cart => {
+export const fetchCart = () => {
   return dispatch => {
-    dispatch(addToCart((cart = products)));
+    dispatch(addToCart(products));
   };
 };
 
