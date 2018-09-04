@@ -173,33 +173,14 @@ hr {
   /* Product Lightbox */
 
   /* Product Lightbox */
-  .lightbox {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    top: 0;
-    left: 0;
-    z-index: 100;
-  }
 
   .product-edit-expand-container {
-    width: 80vw;
     height: 80vh;
-    margin: 0 auto;
     padding: 3rem 1rem;
-    background-color: #fefefe;
-  }
-
-  .product-lightbox {
-    display: flex;
   }
 
   .product-lightbox-desc {
     padding: 1rem;
-    width: 50%;
   }
 
   .product-lightbox img {
@@ -214,29 +195,9 @@ hr {
   }
 
   .product-lightbox button {
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    background-color: #008cba;
-    border: none;
-    color: white;
     padding: 10px 10px;
     margin: 30px 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  .product-lightbox button:hover {
-    background-color: #008cbd;
-    color: white;
-  }
-
-  .product-lightbox input {
-    width: 40px;
-    text-align: center;
   }
 
   /* Subtotal */
