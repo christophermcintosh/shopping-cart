@@ -11,7 +11,7 @@ const ProductEdit = ({
 }) => {
   return (
     <div className="product-lightbox">
-      <div className="product-lightbox-desc text-center py-5">
+      <div className="product-lightbox-desc text-center py-lg-5">
         <hr />
         <p className="text-uppercase font-weight-bold">{product.name}</p>
         <p className="text-uppercase font-weight-bold">
