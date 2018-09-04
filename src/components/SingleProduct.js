@@ -48,22 +48,27 @@ class Product extends Component {
     const { product } = this.props;
     const { openEdit, color, size, quantity } = this.state;
     return (
-      <div>
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-8">
+          <div className="col-5 col-lg-8">
             <div className="product-desc">
-              <img src={product.image} alt={product.name} className="mx-5" />
+              <img
+                src={product.image}
+                alt={product.name}
+                className="mx-2 mx-lg-5"
+              />
               <div>
                 <p className="font-weight-bold text-uppercase">
                   {product.name}
                 </p>
-                <p>
+                <p className="display-none">
                   Style #: MS13KT
                   {product.id}
                 </p>
                 <p>
                   Color: <span className="font-weight-bold">{color} </span>
                 </p>
+                <hr className="p-0" />
                 <div className="product-btn">
                   <Button handleClick={this.handleEdit} text="EDIT" />
                   <Button handleClick={this.handleDelete} text="REMOVE" />
@@ -72,13 +77,13 @@ class Product extends Component {
             </div>
           </div>
 
-          <div className="col-1">
+          <div className="col-2 col-lg-1 text-center">
             <p>{size}</p>
           </div>
-          <div className="col-2">
+          <div className="col-2 col-lg-2 text-center">
             <p>{quantity}</p>
           </div>
-          <div className="col-1">
+          <div className="col-2 col-lg-1 text-center">
             <p className="font-weight-bold">${product.price}</p>
           </div>
         </div>

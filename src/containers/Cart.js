@@ -34,12 +34,12 @@ class Cart extends Component {
     const { cart } = this.state;
 
     return (
-      <div>
-        <div className="row row-header">
-          <div className="col-8">{cart.length} ITEM(S)</div>
-          <div className="col-1">SIZE</div>
-          <div className="col-2">QTY</div>
-          <div className="col-1">PRICE</div>
+      <div className="container-fluid">
+        <div className="row row-header cart-table-header">
+          <div className="col-5 col-lg-8">{cart.length} ITEM(S)</div>
+          <div className="col-2 col-lg-1 text-center">SIZE</div>
+          <div className="col-2 col-lg-2 text-center">QTY</div>
+          <div className="col-2 col-lg-1 text-center">PRICE</div>
         </div>
         {cart.map(product => {
           return (

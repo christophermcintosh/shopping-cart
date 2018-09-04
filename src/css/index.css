@@ -1,9 +1,11 @@
+html,
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   color: #4d4d4d;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  overflow-x: hidden;
 }
 
 button {
@@ -11,7 +13,11 @@ button {
   cursor: auto;
 }
 
-/* Cart */
+hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .row-header {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
@@ -23,6 +29,7 @@ button {
 /* Product */
 .product-desc {
   display: flex;
+  font-size: 0.8rem;
 }
 
 .product-desc p {
@@ -30,16 +37,22 @@ button {
 }
 
 .product-desc img {
-  width: 200px;
-  max-height: 250px;
+  width: 40px;
+  max-height: 70px;
 }
 
-.product-btn {
-  font-weight: bold;
-  margin: 20px 0;
+.product-btn button {
+  font-size: 0.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-/* Product Lightbox */
+.display-none {
+  display: none;
+}
+
+/* Lightbox */
+
 .lightbox {
   position: fixed;
   display: flex;
@@ -54,28 +67,31 @@ button {
 
 .product-edit-expand-container {
   width: 80vw;
-  height: 80vh;
+  height: 50vh;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 1rem 1rem;
   background-color: #fefefe;
 }
 
 .product-lightbox {
   display: flex;
+  font-size: 0.7rem;
 }
 
 .product-lightbox-desc {
-  padding: 1rem;
   width: 50%;
 }
 
 .product-lightbox img {
   max-width: 100%;
-  max-height: 700px;
+  max-height: 200px;
+  margin: 20px 0;
 }
 
-.product-lightbox p {
-  font-size: 1.5rem;
+.product-lightbox p,
+.product-lightbox label {
+  font-size: 0.7rem;
+  margin: 0;
 }
 
 .product-lightbox button {
@@ -84,12 +100,11 @@ button {
   background-color: #008cba;
   border: none;
   color: white;
-  padding: 10px 10px;
-  margin: 30px 0;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -104,14 +119,139 @@ button {
   text-align: center;
 }
 
-/* Subtotal */
-.subtotal p {
-  font-size: 2rem;
-  padding: 2rem;
+/*
+----------------------
+----------------------
+---------------------- */
+
+/* Responsive Breakpoints  */
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .product-desc img {
+    width: 60px;
+    max-height: 90px;
+  }
 }
 
-.subtotal-contact p {
-  font-size: 0.9rem;
-  padding: 0;
-  margin: 0;
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  html,
+  body {
+    font-size: 1.1rem;
+  }
+
+  .display-none {
+    display: block;
+  }
+
+  hr {
+    margin: 1rem 0;
+  }
+  /* Cart */
+
+  .product-btn button {
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 5px;
+    margin: 5px;
+  }
+
+  .product-desc {
+    font-size: 1.1rem;
+  }
+
+  .product-desc img {
+    width: 200px;
+    max-height: 250px;
+  }
+
+  /* Product Lightbox */
+
+  /* Product Lightbox */
+  .lightbox {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  .product-edit-expand-container {
+    width: 80vw;
+    height: 80vh;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    background-color: #fefefe;
+  }
+
+  .product-lightbox {
+    display: flex;
+  }
+
+  .product-lightbox-desc {
+    padding: 1rem;
+    width: 50%;
+  }
+
+  .product-lightbox img {
+    max-width: 100%;
+    max-height: 700px;
+  }
+
+  .product-lightbox p,
+  .product-lightbox label {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-lightbox button {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color: #008cba;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    margin: 30px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .product-lightbox button:hover {
+    background-color: #008cbd;
+    color: white;
+  }
+
+  .product-lightbox input {
+    width: 40px;
+    text-align: center;
+  }
+
+  /* Subtotal */
+  .subtotal p {
+    font-size: 2rem;
+    padding: 2rem;
+  }
+
+  .subtotal-contact p {
+    font-size: 0.9rem;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }
