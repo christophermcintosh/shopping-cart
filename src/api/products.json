@@ -7,7 +7,7 @@
     "selectedSize": "S",
     "selectedColor": "red",
     "price": "20.00",
-    "image": "../img/button-down-shirt.png",
+    "image": "https://image.ibb.co/b54kje/button_down_shirt.png",
     "quantity": 1
   },
   {
@@ -18,7 +18,7 @@
     "selectedSize": "M",
     "selectedColor": "white",
     "price": "15.00",
-    "image": "../img/polo-shirt.png",
+    "image": "https://image.ibb.co/jELEcz/polo_shirt.png",
     "quantity": 1
   },
   {
@@ -29,7 +29,7 @@
     "selectedSize": "S",
     "selectedColor": "red",
     "price": "10.00",
-    "image": "../img/t-shirt.png",
+    "image": "https://image.ibb.co/hUKJ4e/t_shirt.png",
     "quantity": 1
   },
   {
@@ -40,7 +40,7 @@
     "selectedSize": "M",
     "selectedColor": "white",
     "price": "5.00",
-    "image": "../img/tank-top.png",
+    "image": "https://image.ibb.co/gTNucz/tank_top.png",
     "quantity": 1
   }
 ]
